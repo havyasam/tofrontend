@@ -11,7 +11,7 @@ export default function Home() {
     const [name, setName] = useState('')
 
     useEffect(() =>{
-        axios.get('http://localhost:5000/api/tasks/')
+        axios.get('https://todo-backend-bace.vercel.app/api/tasks/')
         .then((res) =>{
             
             setTask(res.data)
@@ -25,7 +25,7 @@ export default function Home() {
     const deleteTask = async (taskID) =>{
 
         try {
-            await axios.delete(`http://localhost:5000/api/tasks/${taskID}`)
+            await axios.delete(`https://todo-backend-bace.vercel.app/api/tasks/${taskID}`)
             console.log("task deleted")
            
             setTask(tasks.filter(task => task._id !== taskID))
@@ -38,7 +38,7 @@ export default function Home() {
     const createTask = async () => {
         try {
             console.log(name)
-            const res = await axios.post('http://localhost:5000/api/tasks/',{task:name})
+            const res = await axios.post('https://todo-backend-bace.vercel.app/api/tasks/',{task:name})
             console.log("getting")
             setTask([...tasks, res.data])
             setName('')

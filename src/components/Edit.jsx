@@ -13,7 +13,7 @@ export default function Edit() {
    
     const [name, setName] = useState('')
     useEffect(() =>{
-        axios.get(`http://localhost:5000/api/tasks/${id}`)
+        axios.get(`https://todo-backend-bace.vercel.app/api/tasks/${id}`)
         .then((res) =>{
             setName(res.data.task)
             console.log(res.data.task)
@@ -27,7 +27,7 @@ export default function Edit() {
         console.log(name)
         console.log(id)
         try {
-            await axios.put(`http://localhost:5000/api/tasks/${id}`,{task:name})
+            await axios.put(`https://todo-backend-bace.vercel.app/api/tasks/${id}`,{task:name})
             navigate('/');
             console.log("done")
 
